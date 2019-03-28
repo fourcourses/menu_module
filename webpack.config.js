@@ -1,21 +1,25 @@
 const path = require('path')
-const enter = path.join(__dirname, './client/index.jsx')
+const enter = path.join(__dirname, '/client/src/')
 const out = path.join(__dirname, 'public')
-module.export = {
-  entry: enter,
+module.exports = {
+  entry: `${enter}/index.jsx`,
   output: {
     path: out,
     filename: 'bundle.js'
   },
+  mode: 'development',
   module: {
-    rules: [{
-      test: /\.jsx$/,
-      use:{
-        loader: 'babel-loader',
-        options: {
-          preset: ['@babel/preset-react']
+    rules: [
+      {
+        test: /\.jsx$/,
+        include: enter,
+        use:{
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-react']
+          }
         }
       }
-    }]
+  ]
   }
 };
