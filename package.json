@@ -7,14 +7,20 @@
   "engines": {
     "node": ">=6.13.0"
   },
-  "scripts": {},
+  "scripts": {
+    "start": "webpack -w"
+  },
   "dependencies": {
+    "faker": "^4.1.0",
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5",
     "webpack": "^4.29.6"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "webpack-cli": "^3.3.0"
   }
 }
