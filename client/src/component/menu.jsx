@@ -1,13 +1,11 @@
 import React from 'react';
-import mockData from '../mockdata.js'
-const menu = () => {
-  var id = 0
+const menu = (props) => {
+  console.log(props.menus)
   return (
     <div className='wrapper'>
-      {mockData.map(x => <div className="item">
-        <div>{x.name}</div>
-        <div>${x.price}</div>
-        <div>{x.ingredients}</div>
+      {props.menus.dishes.map((dishes, index) => <div className="item" key={index.toString()}>
+        <div className="dish_name"><div className="dname">{dishes.dish}</div><div className='price'>${dishes.price}</div></div>
+        <div>{dishes.ingredients}</div>
       </div>)}
     </div>
   )
