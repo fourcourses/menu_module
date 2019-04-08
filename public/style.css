@@ -1,14 +1,15 @@
-
-.item:hover{
+.item:hover {
   -moz-transform: scale(1.1);
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
-#app{
+
+#app {
   display: flex;
   justify-content: center;
 }
-.wrapper{
+
+.wrapper {
   width: 600px;
   height: auto;
   display: flex;
@@ -16,19 +17,22 @@
   flex-wrap: wrap-reverse;
   justify-content: space-between;
 }
- .item{
-   flex-basis: 300px;
-   height: 60px;
-   
-}  
-.dish_name{
+
+.item {
+  flex-basis: 300px;
+  height: 60px;
+
+}
+
+.dish_name {
   display: flex;
   justify-content: space-between;
 }
 
-.price{
+.price {
   flex: 1;
 }
-.dname{
+
+.dname {
   flex: 2;
 }

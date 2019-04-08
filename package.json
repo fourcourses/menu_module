@@ -10,9 +10,13 @@
   "scripts": {
     "start": "webpack -w",
     "server": "nodemon server/index.js",
-    "seed": "node database/seed.js"
+    "seed": "node database/seed.js",
+    "test": "jest"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "babel-jest": "^24.7.1",
     "body-parser": "^1.18.3",
     "eslint": "^5.15.3",
     "express": "^4.16.4",
@@ -28,7 +32,11 @@
     "@babel/core": "^7.4.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
+    "chai": "^4.2.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "jest": "^24.6.0",
     "webpack-cli": "^3.3.0"
   }
 }

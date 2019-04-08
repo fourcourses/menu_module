@@ -5,6 +5,8 @@ mongoose.Promise = global.Promise;
 var menu = new mongoose.Schema({
   _id: Number,
   dishes: [{
+    dishType: String,
+    subType: String,
     dish: String,
     price: Number,
     ingredients: String
