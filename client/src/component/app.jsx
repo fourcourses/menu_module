@@ -12,9 +12,11 @@ class App extends React.Component {
     this.breakFastFunc = this.breakFastFunc.bind(this)
     this.lunchFunc = this.lunchFunc.bind(this)
     this.dinnerFunc = this.dinnerFunc.bind(this)
+    this.colFunc = this.colFunc.bind(this)
   }
   componentDidMount() {
     this.renderView()
+    this.colFunc()
   }
   renderView() {
     $.ajax({
@@ -23,7 +25,8 @@ class App extends React.Component {
       success: (reqData) => {
         this.setState({
           menus: reqData,
-          type: reqData
+          type: reqData,
+          exp: 'expand'
         })
       }
     })
@@ -64,10 +67,26 @@ class App extends React.Component {
       type: { dishes: breakfastDishes }
     })
   }
+  colFunc() {
+    if (this.state.exp === 'expand') {
+      document.getElementById('hiddenContainer').style.display = "none"
+      document.getElementById('stickyButton').value = "View full Menu"
+      this.setState({
+        exp: 'col'
+      })
+    }
+    else{
+      document.getElementById('hiddenContainer').style.display = "block"
+      document.getElementById('stickyButton').value ='Collapse menu'
+      this.setState({
+        exp : 'expand'
+      })
+    }
+  }
   render() {
     return (
       <div>
-        <Menu menus={this.state.type} breakFunc={this.breakFastFunc} lunchFunc={this.lunchFunc} dinnerFunc={this.dinnerFunc} />
+        <Menu menus={this.state.type} breakFunc={this.breakFastFunc} lunchFunc={this.lunchFunc} dinnerFunc={this.dinnerFunc} colFunc={this.colFunc} />
       </div>
     )
   }

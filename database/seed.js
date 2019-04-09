@@ -7,7 +7,7 @@ var subType = ['Main course','starters']
 var func = () => {
   for(var x = 0;x<100;x++){
     var arr =[]
-    for(var y = 0;y<30;y++){
+    for(var y = 0;y<60;y++){
       arr.push({
         dishType:dishType[Math.floor(Math.random()*3)],
         subType:subType[y%2],
