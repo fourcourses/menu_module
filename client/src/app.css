@@ -1,0 +1,115 @@
+.menu {
+  font-family: BrandonText, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.item:hover {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper1 {
+  width: 600px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#wrapper2 {
+  width: 600px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.item {
+  flex-basis: 300px;
+  height: 50px;
+  font-family: "BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol";
+}
+
+.typeBar {
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.spacer {
+  flex-grow: 0.05;
+}
+
+#buttons {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  color: #2d333f;
+  border: 1px solid #d8d9db;
+  border-radius: 2px;
+  padding: 8px 16px;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.dishName {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price {
+  flex: 1;
+}
+
+.dname {
+  flex: 2;
+  font-weight: bolder;
+  font-size: 14px;
+}
+
+.ingredients {
+  font-style: oblique;
+  font-size: 14px;
+}
+
+#stickyButton {
+  width: 200px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  color: #2d333f;
+  border: 1px solid #d8d9db;
+  border-radius: 2px;
+  padding: 8px 16px;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+#colButton {
+  display: flex;
+  justify-content: center;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+}
+
+.headers {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 500;
+  font-family: "BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol";
+
+}
+
+#line {
+  color: gainsboro;
+}

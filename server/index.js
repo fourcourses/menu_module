@@ -3,9 +3,11 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const app = express()
 const menus = require('../database/database.js')
+const cors = require('cors')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static(path.join(__dirname, "../public")))
+app.use(cors())
 app.get('/menu:id', (req, res) => {
   console.log('get request')
   menus.findById(req.params.id, (err, menus) => {
