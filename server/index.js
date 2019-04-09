@@ -18,4 +18,7 @@ app.get('/menu:id', (req, res) => {
     }
   })
 })
+app.get('/men',(req,res)=>{
+  res.send('helo')
+})
 app.listen(3000, () => console.log('listening on port 3000'))
