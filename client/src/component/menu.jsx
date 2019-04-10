@@ -28,7 +28,7 @@ const menu = (props) => {
       </div>
       </div>
       <div id="colButton">
-      <input type="button" id="stickyButton"  onClick={()=>props.colFunc()}></input>
+      <input type="button" id="stickyButton" onClick={()=>props.scrollFunc(props.colFunc())} ></input>
       </div>
       <div id="line">____________________________________________________________________</div>
     </div>
