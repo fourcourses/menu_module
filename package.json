@@ -27,6 +27,7 @@
     "nodemon": "^1.18.10",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
+    "sticky-events": "^2.4.0",
     "webpack": "^4.29.6"
   },
   "devDependencies": {
