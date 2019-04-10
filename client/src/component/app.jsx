@@ -1,4 +1,5 @@
 import React from 'react'
+import { observeStickyEvents, StickyEvent } from "sticky-events";
 import $ from 'jquery'
 import Menu from './menu.jsx'
 import data from '../mockdata.js'
@@ -13,9 +14,16 @@ class App extends React.Component {
     this.lunchFunc = this.lunchFunc.bind(this)
     this.dinnerFunc = this.dinnerFunc.bind(this)
     this.colFunc = this.colFunc.bind(this)
+    this.scrollFunc = this.scrollFunc.bind(this)
   }
   componentDidMount() {
+    this.stickyEvent()
     this.renderView()
+  }
+  stickyEvent(){
+    observeStickyEvents()
+    const stickies = document.getElementById('colButton');
+    stickies.addEventListener(StickyEvent.CHANGE,()=>console.log('HELLO'))
   }
   renderView() {
     $.ajax({
@@ -32,9 +40,11 @@ class App extends React.Component {
       }
     })
   }
-  scrollFunc(a){
-    window.scrollTo(100,0)
-    a()
+  scrollFunc(a) {
+    if (this.state.exp === 'expand') {
+      document.getElementById('top').scrollIntoView()
+      document.get
+    } a()
   }
   breakFastFunc() {
     var data = this.state.menus
@@ -76,15 +86,17 @@ class App extends React.Component {
     if (this.state.exp === 'expand') {
       document.getElementById('hiddenContainer').style.display = "none"
       document.getElementById('stickyButton').value = "View full Menu"
+      document.getElementById('blur').style.display ="block"
       this.setState({
         exp: 'col'
       })
     }
-    else{
+    else {
       document.getElementById('hiddenContainer').style.display = "block"
-      document.getElementById('stickyButton').value ='Collapse menu'
+      document.getElementById('stickyButton').value = 'Collapse menu'
+      document.getElementById('blur').style.display ="none"
       this.setState({
-        exp : 'expand'
+        exp: 'expand'
       })
     }
   }

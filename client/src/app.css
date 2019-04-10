@@ -18,6 +18,7 @@
 .wrapper1 {
   width: 600px;
   height: auto;
+  position: relative;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -112,4 +113,16 @@
 
 #line {
   color: gainsboro;
+}
+html {
+  scroll-behavior: smooth;
+}
+#blur { 
+  position: absolute;
+  bottom: 0;
+  width: 100%; 
+  text-align: center; 
+  margin: 0; padding: 70px 0; 
+	
+  background-image: linear-gradient(to bottom, transparent, white);
 }
