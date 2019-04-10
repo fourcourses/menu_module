@@ -16,20 +16,25 @@ class App extends React.Component {
   }
   componentDidMount() {
     this.renderView()
-    this.colFunc()
   }
   renderView() {
     $.ajax({
       method: 'GET',
-      url: 'http://localhost:3000/menu3',
+      url: 'http://localhost:3003/menu3',
       success: (reqData) => {
         this.setState({
           menus: reqData,
           type: reqData,
           exp: 'expand'
         })
+        this.colFunc()
+        this.lunchFunc()
       }
     })
+  }
+  scrollFunc(a){
+    window.scrollTo(100,0)
+    a()
   }
   breakFastFunc() {
     var data = this.state.menus
@@ -86,7 +91,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Menu menus={this.state.type} breakFunc={this.breakFastFunc} lunchFunc={this.lunchFunc} dinnerFunc={this.dinnerFunc} colFunc={this.colFunc} />
+        <Menu menus={this.state.type} breakFunc={this.breakFastFunc} lunchFunc={this.lunchFunc} dinnerFunc={this.dinnerFunc} scrollFunc={this.scrollFunc} colFunc={this.colFunc} />
       </div>
     )
   }
