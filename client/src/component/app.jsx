@@ -41,6 +41,7 @@ class App extends React.Component {
       }
     })
   }
+  
   scrollFunc(a) {
     if (this.state.exp === 'expand') {
       document.getElementById('top').scrollIntoView()
@@ -50,6 +51,9 @@ class App extends React.Component {
   breakFastFunc() {
     var data = this.state.menus
     var breakfastDishes = []
+    document.getElementById("dessertButtons").style.border ="2px solid red"
+    document.getElementById("lunchButtons").style.border ="0px"
+    document.getElementById("dinnerButtons").style.border ="0px"
     for (var x = 0; x < data.dishes.length; x++) {
       if (data.dishes[x].dishType === 'Breakfast') {
         breakfastDishes.push(data.dishes[x])
@@ -62,6 +66,9 @@ class App extends React.Component {
   lunchFunc() {
     var data = this.state.menus
     var breakfastDishes = []
+    document.getElementById("lunchButtons").style.border ="2px solid red"
+    document.getElementById("dessertButtons").style.border ="0px"
+    document.getElementById("dinnerButtons").style.border ="0px"
     for (var x = 0; x < data.dishes.length; x++) {
       if (data.dishes[x].dishType === 'Lunch') {
         breakfastDishes.push(data.dishes[x])
@@ -74,6 +81,9 @@ class App extends React.Component {
   dinnerFunc() {
     var data = this.state.menus
     var breakfastDishes = []
+    document.getElementById("dinnerButtons").style.border ="2px solid red"
+    document.getElementById("dessertButtons").style.border ="0px"
+    document.getElementById("lunchButtons").style.border ="0px"
     for (var x = 0; x < data.dishes.length; x++) {
       if (data.dishes[x].dishType === 'Dinner') {
         breakfastDishes.push(data.dishes[x])

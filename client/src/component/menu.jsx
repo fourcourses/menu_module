@@ -4,9 +4,9 @@ const menu = (props) => {
     <div className="menus">
       <h1 id="menuBar">Menu</h1>
       <div className="typeBar" id="top">
-        <input type="button" id="buttons" onClick={() => props.lunchFunc()} value="lunch Menu"></input><div className="spacer"></div>
-        <input type="button" id="buttons" onClick={() => props.dinnerFunc()} value="Dinner Menu"></input><div className="spacer"></div>
-        <input type="button" id="buttons" onClick={() => props.breakFunc()} value="Dessert Menu"></input></div>
+        <input type="button" className="buttons" id="lunchButtons" onClick={() => props.lunchFunc()} value="lunch Menu"></input><div className="spacer"></div>
+        <input type="button" className="buttons" id="dinnerButtons" onClick={() => props.dinnerFunc()} value="Dinner Menu"></input><div className="spacer"></div>
+        <input type="button" className="buttons" id="dessertButtons" onClick={() => props.breakFunc()} value="Dessert Menu"></input></div>
       <div >
         <h3 className="headers">Starters</h3>
         <div id="wrapper1">
