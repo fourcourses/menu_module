@@ -15,7 +15,6 @@ app.get('/menu:id', (req, res) => {
       console.log(err)
       res.send(err)
     } else {
-      console.log(menus)
       res.send(menus)
     }
   })
