@@ -10,7 +10,7 @@
   transform: scale(1.1);
 }
 
-#app {
+#menu {
   display: flex;
   justify-content: center;
 }
@@ -125,10 +125,4 @@ html {
   margin: 0; padding: 70px 0; 
 	
   background-image: linear-gradient(to bottom, transparent, white);
-}
-.stickyButton_sentinel--bottom {
-  /* Height should match the top of the header when it's at the bottom of the
-  intersection container. */
-  height: calc(var(--header-height) + var(--default-padding));
-  bottom: 0;
 }

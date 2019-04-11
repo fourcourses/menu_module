@@ -4,4 +4,4 @@ import App from './component/app.jsx'
 import styles from './app.css' 
 
 
-ReactDOM.render(<App/>, document.getElementById('menu'))
+ReactDOM.render(<App/>, document.getElementById('menus'))

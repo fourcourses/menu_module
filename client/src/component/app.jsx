@@ -1,5 +1,5 @@
 import React from 'react'
-import { observeStickyEvents, StickyEvent } from "sticky-events";
+//import { observeStickyEvents, StickyEvent } from "sticky-events";
 import $ from 'jquery'
 import Menu from './menu.jsx'
 import data from '../mockdata.js'
@@ -17,18 +17,19 @@ class App extends React.Component {
     this.scrollFunc = this.scrollFunc.bind(this)
   }
   componentDidMount() {
-    this.stickyEvent()
+   // this.stickyEvent()
     this.renderView()
   }
-  stickyEvent(){
-    observeStickyEvents()
-    const stickies = document.getElementById('colButton');
-    stickies.addEventListener(StickyEvent.CHANGE,()=>console.log('HELLO'))
-  }
+  // stickyEvent(){
+  //   observeStickyEvents()
+  //   const stickies = document.getElementById('colButton');
+  //   stickies.addEventListener(StickyEvent.CHANGE,()=>console.log('HELLO'))
+  // }
   renderView() {
+    const id = window.location.pathname.split('/')[2];
     $.ajax({
       method: 'GET',
-      url: 'http://localhost:3003/menu3',
+      url: `http://localhost:3003/menu/${id}`,
       success: (reqData) => {
         this.setState({
           menus: reqData,
@@ -86,7 +87,9 @@ class App extends React.Component {
     if (this.state.exp === 'expand') {
       document.getElementById('hiddenContainer').style.display = "none"
       document.getElementById('stickyButton').value = "View full Menu"
-      document.getElementById('blur').style.display ="block"
+      document.getElementById('blur').style.display = "block"
+      document.getElementById('wrapper1').style.borderBottomWidth = "0px"
+
       this.setState({
         exp: 'col'
       })
@@ -94,7 +97,8 @@ class App extends React.Component {
     else {
       document.getElementById('hiddenContainer').style.display = "block"
       document.getElementById('stickyButton').value = 'Collapse menu'
-      document.getElementById('blur').style.display ="none"
+      document.getElementById('blur').style.display = "none"
+      document.getElementById('wrapper1').style.borderBottomWidth = "1px"
       this.setState({
         exp: 'expand'
       })

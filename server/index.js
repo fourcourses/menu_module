@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static(path.join(__dirname, "../public")))
 app.use(cors())
-app.get('/menu:id', (req, res) => {
+app.get('/menu/:id', (req, res) => {
   console.log('get request')
   menus.findById(req.params.id, (err, menus) => {
     if (err) {
@@ -18,8 +18,5 @@ app.get('/menu:id', (req, res) => {
       res.send(menus)
     }
   })
-})
-app.get('/men',(req,res)=>{
-  res.send('helo')
 })
 app.listen(3003, () => console.log('listening on port 3003'))
