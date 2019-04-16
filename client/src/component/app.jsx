@@ -2,13 +2,13 @@ import React from 'react'
 //import { observeStickyEvents, StickyEvent } from "sticky-events";
 import $ from 'jquery'
 import Menu from './menu.jsx'
-import data from '../mockdata.js'
+//import data from '../mockdata.js'
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      menus: data,
-      type: data
+      menus: '',
+      type: ''
     }
     this.breakFastFunc = this.breakFastFunc.bind(this)
     this.lunchFunc = this.lunchFunc.bind(this)
@@ -29,7 +29,7 @@ class App extends React.Component {
     const id = window.location.pathname.split('/')[2];
     $.ajax({
       method: 'GET',
-      url: `http://localhost:3003/menu/${id}`,
+      url: `/menu/${id}`,
       success: (reqData) => {
         this.setState({
           menus: reqData,
@@ -117,7 +117,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Menu menus={this.state.type} breakFunc={this.breakFastFunc} lunchFunc={this.lunchFunc} dinnerFunc={this.dinnerFunc} scrollFunc={this.scrollFunc} colFunc={this.colFunc} />
+        {this.state.type !== '' &&<Menu menus={this.state.type} breakFunc={this.breakFastFunc} lunchFunc={this.lunchFunc} dinnerFunc={this.dinnerFunc} scrollFunc={this.scrollFunc} colFunc={this.colFunc} />}
       </div>
     )
   }

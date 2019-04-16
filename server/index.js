@@ -7,9 +7,9 @@ const cors = require('cors')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static(path.join(__dirname, "../public")))
+app.use("/restaurants/:id",express.static(path.join(__dirname, "../public")))
 app.use(cors())
 app.get('/menu/:id', (req, res) => {
-  console.log('get request')
   menus.findById(req.params.id, (err, menus) => {
     if (err) {
       console.log(err)

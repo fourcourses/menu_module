@@ -5,7 +5,7 @@ var menuData = []
 var dishType = ['Breakfast','Lunch','Dinner']
 var subType = ['Main course','starters']
 var func = () => {
-  for(var x = 0;x<100;x++){
+  for(var x = 100;x<=200;x++){
     var arr =[]
     for(var y = 0;y<60;y++){
       arr.push({
@@ -25,6 +25,6 @@ var func = () => {
 func();
 const insertSampleBlogs = function() {
   menu.create(menuData)
-    .then(() => db.disconnect());
+    .then(() => db.close());
 };
 insertSampleBlogs();
