@@ -1,9 +1,9 @@
 # Menu Module
 Component to handle the menu module of the restaurant page.
 
-#Set Up
+# Set Up
 
-#CRUD API Endpoints
+# CRUD API Endpoints
 __________________________________________________________________________________
 | Endpoint                                | Type   | Operation                    |
 |-----------------------------------------|--------|------------------------------|
