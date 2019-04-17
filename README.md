@@ -4,10 +4,10 @@ Component to handle the menu module of the restaurant page.
 #Set Up
 
 #CRUD API Endpoints
-_______________________________________________________________________________
-| Endpoint                                | Type   | Operation                 |
-|-----------------------------------------|--------|---------------------------|
-| `/menu/:id`                             | GET    | Get all photos in listing |
-| `/menu`                                 | POST   | Add photos to listing     |
-| `/menu/:id`                             | PUT    | Update photos of listing  |
-| `/menu/:id`                             | DELETE | Delete photos of listing  |
+__________________________________________________________________________________
+| Endpoint                                | Type   | Operation                    |
+|-----------------------------------------|--------|------------------------------|
+| `/menu/:id`                             | GET    | Get menu for a restaurant    |
+| `/menu`                                 | POST   | Add menu for a restaurant    |
+| `/menu/:id`                             | PUT    | Update menu for a restaurant |
+| `/menu/:id`                             | DELETE | Delete menu for a restaurant |
