@@ -4,7 +4,7 @@ Component to handle the menu module of the restaurant page.
 # Set Up
 
 # CRUD API Endpoints
-__________________________________________________________________________________
+
 | Endpoint                                | Type   | Operation                    |
 |-----------------------------------------|--------|------------------------------|
 | `/menu/:id`                             | GET    | Get menu for a restaurant    |
