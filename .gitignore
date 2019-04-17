@@ -2,5 +2,6 @@ node_modules
 public/bundle.js
 proxy
 Dockerfile
-bundle.js.br
-bundle.js.gz
+public/bundle.js.br
+public/bundle.js.gz
+.eslintrc.json
