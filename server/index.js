@@ -13,45 +13,45 @@ app.use("/restaurants/:id",express.static(path.join(__dirname, "../public")))
 app.get('/menu/:id', (req, res) => {
   menus.findById(req.params.id, (err, menus) => {
     if (err) {
-      console.log(err)
-      res.send(err)
+      res.status(400);
+      res.send(err);
     } else {
-      res.send(menus)
+      res.send(menus);
     }
-  })
+  });
 });
 
 app.post('/menu', (req, res) => {
   menus.create(req.params.id, (err, menus) => {
     if (err) {
-      console.log(err)
-      res.send(err)
+      res.status(400);
+      res.send(err);
     } else {
-      res.send(menus)
+      res.send(menus);
     }
-  })
+  });
 });
 
 app.put('/menu/:id', (req, res) => {
   menus.findByIdAndUpdate(req.params.id, (err, menus) => {
     if (err) {
-      console.log(err)
-      res.send(err)
+      res.status(400);
+      res.send(err);
     } else {
-      res.send(menus)
+      res.send(menus);
     }
-  })
+  });
 });
 
 app.delete('/menu/:id', (req, res) => {
   menus.findByIdAndDelete(req.params.id, (err, menus) => {
     if (err) {
-      console.log(err)
-      res.send(err)
+      res.status(400);
+      res.send(err);
     } else {
-      res.send(menus)
+      res.send(menus);
     }
-  })
+  });
 });
 
 

@@ -5,3 +5,5 @@ Dockerfile
 public/bundle.js.br
 public/bundle.js.gz
 .eslintrc.json
+.DS_Store
+database/config.js
