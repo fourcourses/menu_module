@@ -10,7 +10,7 @@
   "scripts": {
     "build": "webpack -w",
     "start": "nodemon server/index.js",
-    "seed": "node database/seed.js",
+    "db:init": "node database/database.js",
     "test": "jest"
   },
   "dependencies": {
