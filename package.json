@@ -19,7 +19,7 @@
     "babel-jest": "^24.7.1",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
-    "csv-writer": "^1.2.0",
+    "csv-write-stream": "^2.0.0",
     "express": "^4.16.4",
     "faker": "^4.1.0",
     "jquery": "^3.3.1",
@@ -36,6 +36,7 @@
   "devDependencies": {
     "@babel/core": "^7.4.0",
     "@babel/preset-react": "^7.0.0",
+    "artillery": "^1.6.0-27",
     "babel-loader": "^8.0.5",
     "brotli-gzip-webpack-plugin": "^0.5.0",
     "chai": "^4.2.0",

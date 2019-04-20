@@ -7,3 +7,5 @@ public/bundle.js.gz
 .eslintrc.json
 .DS_Store
 database/config.js
+database/menu.csv
+database/restaurant.csv
