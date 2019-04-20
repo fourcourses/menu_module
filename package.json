@@ -10,7 +10,8 @@
   "scripts": {
     "build": "webpack -w",
     "start": "nodemon server/index.js",
-    "db:init": "node database/database.js",
+    "db:init": "psql postgres < database/db.sql && node database/database.js",
+    "db:gen": "node database/datageneration.js",
     "test": "jest"
   },
   "dependencies": {
