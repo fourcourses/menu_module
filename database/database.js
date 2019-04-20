@@ -1,18 +1,59 @@
-const mongoose = require('mongoose');
-const db = require('./index.js');
-mongoose.Promise = global.Promise;
+const Sequelize = require('sequelize');
+const sequelize = require('./index.js');
 
-var menu = new mongoose.Schema({
-  _id: Number,
-  dishes: [{
-    dishType: String,
-    subType: String,
-    dish: String,
-    price: Number,
-    ingredients: String
-  }]
+const { Model } = Sequelize;
 
-})
-var menus = mongoose.model('menus', menu)
+class Restaurant extends Model {}
+Restaurant.init({
+  id: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+    primaryKey: true,
+    unique: true,
+  },
+  link: {
+    type: Sequelize.STRING,
+    allowNull: true,
+  },
+}, {
+  sequelize,
+  modelName: 'restaurant',
+  timestamps: false,
+});
 
-module.exports = menus
+class Menu extends Model {}
+Menu.init({
+  id: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+    primaryKey: true,
+    unique: true,
+    autoIncrement: true,
+  },
+  dishtype: {
+    type: Sequelize.STRING,
+  },
+  subtype: {
+    type: Sequelize.STRING,
+  },
+  dish: {
+    type: Sequelize.STRING,
+  },
+  price: {
+    type: Sequelize.INTEGER,
+  },
+  ingredients: {
+    type: Sequelize.STRING,
+  },
+}, {
+  sequelize,
+  modelName: 'menu',
+  timestamps: false,
+});
+
+Restaurant.hasMany(Menu);
+Menu.belongsTo(Restaurant);
+
+sequelize.sync();
+
+module.exports = Menu;
