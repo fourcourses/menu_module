@@ -1,6 +1,7 @@
 const faker = require('faker');
 const fileRestaurant = require('fs').createWriteStream('database/restaurant.txt');
-// const fileRestaurant = require('fs').createWriteStream('database/restaurantShort.txt'); <- use this instead to generate smaller test file
+// use the line below if you want to generate a smaller test file
+// const fileRestaurant = require('fs').createWriteStream('database/restaurantShort.txt');
 
 const dishTypes = ['Breakfast', 'Lunch', 'Dinner', 'Brunch', 'Bar', 'Dessert', 'Cheese', 'Craft Cocktails & Libations', 'Afternoon Bites', 'After Dinner', 'Wines by the Glass'];
 const subTypes = ['Mains', 'Starters', 'Sides', 'Raw Bar', 'Snacks', 'Appetizers', 'Classics', 'Recommendations', 'Entrees', 'Small Plates', 'Soups & Salads'];
@@ -31,9 +32,9 @@ const generateRestaurants = async () => {
     }
 
     let dishesString = '{';
-    for (let dishIndex = 0; dishIndex < dishes.length; dishIndex++) {
+    for (let dishIndex = 0; dishIndex < dishes.length; dishIndex += 1) {
       if (dishIndex !== dishes.length - 1) {
-        dishesString = dishesString.concat(JSON.stringify(dishes[dishIndex]) + ',');
+        dishesString = dishesString.concat(`${JSON.stringify(dishes[dishIndex])},`);
       } else {
         dishesString = dishesString.concat(JSON.stringify(dishes[dishIndex]));
       }

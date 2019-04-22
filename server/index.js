@@ -9,10 +9,10 @@ const { updateMenu } = require('./controllers');
 const { deleteMenu } = require('./controllers');
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.use('/restaurants/:id',express.static(path.join(__dirname, '../public')));
+app.use('/restaurants/:id', express.static(path.join(__dirname, '../public')));
 
 app.get('/menu/:id', getMenu);
 

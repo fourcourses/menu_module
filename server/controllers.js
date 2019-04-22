@@ -9,7 +9,7 @@ exports.getMenu = (req, res) => {
           dishType: dish[0].split(':')[1],
           subType: dish[1].split(':')[1],
           dish: dish[2].split(':')[1],
-          price: parseInt(dish[3].split(':')[1]),
+          price: parseInt(dish[3].split(':')[1], 10),
           ingredients: dish[4].split(':')[1],
         };
         dishesObj.push(dishObj);
