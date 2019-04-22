@@ -8,4 +8,5 @@ public/bundle.js.gz
 .DS_Store
 database/config.js
 database/menu.csv
-database/restaurant.csv
+database/restaurant.txt
+database/restaurantShort.txt
