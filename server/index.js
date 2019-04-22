@@ -3,10 +3,12 @@ const path = require('path');
 const bodyParser = require('body-parser');
 
 const app = express();
-const { getMenu } = require('./controllers');
-const { createMenu } = require('./controllers');
-const { updateMenu } = require('./controllers');
-const { deleteMenu } = require('./controllers');
+const {
+  getMenu,
+  createMenu,
+  updateMenu,
+  deleteMenu,
+} = require('./controllers');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

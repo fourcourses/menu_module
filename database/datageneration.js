@@ -9,7 +9,7 @@ const subTypes = ['Mains', 'Starters', 'Sides', 'Raw Bar', 'Snacks', 'Appetizers
 const generateRestaurants = async () => {
   fileRestaurant.write('id|dishes|link\n');
 
-  for (let id = 1; id <= 10000000; id += 1) {
+  for (let id = 1; id <= 1e7; id += 1) {
     let link = null;
     const numberOfDishes = Math.floor(Math.random() * 10 + 10);
     const linkOrMenu = Math.floor(Math.random() * 3); // 1/3rd chance of menu being a link to menu
