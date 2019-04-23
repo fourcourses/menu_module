@@ -10,7 +10,7 @@
   "scripts": {
     "build": "webpack -w",
     "start": "nodemon server/index.js",
-    "db:seed": "psql postgres < database/db.sql && node database/database.js && node database/seed.js",
+    "db:seed": "psql postgres < database/db.sql && node database/Menu.js && node database/seed.js",
     "db:gen": "node database/datageneration.js",
     "test": "jest"
   },
@@ -22,6 +22,7 @@
     "cors": "^2.8.5",
     "csv-write-stream": "^2.0.0",
     "express": "^4.16.4",
+    "express-cassandra": "^2.3.0",
     "faker": "^4.1.0",
     "jquery": "^3.3.1",
     "mongoose": "^5.4.20",
