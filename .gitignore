@@ -10,3 +10,5 @@ database/config.js
 database/menu.csv
 database/restaurant.txt
 database/restaurantShort.txt
+cassandradb/restaurant.txt
+cassandradb/restaurantShort.txt
