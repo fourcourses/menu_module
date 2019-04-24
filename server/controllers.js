@@ -1,32 +1,46 @@
 const menus = require('../database/Menu');
 const sequelize = require('../database/index');
+const cassandra = require('../cassandradb/index');
 
 exports.getMenu = (req, res) => {
-  console.time('getMenuTimeLength');
-  const query = `SELECT * FROM menus WHERE id = ${req.params.id};`;
-  sequelize.query(query, { type: sequelize.QueryTypes.SELECT })
-    .then(([menu, metadata]) => {
-      const dishesObj = [];
-      menu.dishes.forEach((dish) => {
-        const dishObj = {
-          dishType: dish[0].split(':')[1],
-          subType: dish[1].split(':')[1],
-          dish: dish[2].split(':')[1],
-          price: parseInt(dish[3].split(':')[1], 10),
-          ingredients: dish[4].split(':')[1],
-        };
-        dishesObj.push(dishObj);
-      });
-      menu.dishes = dishesObj;
-      res.status(200);
-      res.send(menu);
-      console.timeEnd('getMenuTimeLength');
-    })
-    .catch((err) => {
+  // console.time('getMenuTimeLength');
+  // const query = `SELECT * FROM menus WHERE id = ${req.params.id};`;
+  // sequelize.query(query, { type: sequelize.QueryTypes.SELECT })
+  //   .then(([menu, metadata]) => {
+  //     const dishesObj = [];
+  //     menu.dishes.forEach((dish) => {
+  //       const dishObj = {
+  //         dishType: dish[0].split(':')[1],
+  //         subType: dish[1].split(':')[1],
+  //         dish: dish[2].split(':')[1],
+  //         price: parseInt(dish[3].split(':')[1], 10),
+  //         ingredients: dish[4].split(':')[1],
+  //       };
+  //       dishesObj.push(dishObj);
+  //     });
+  //     menu.dishes = dishesObj;
+  //     res.status(200);
+  //     res.send(menu);
+  //     console.timeEnd('getMenuTimeLength');
+  //   })
+  //   .catch((err) => {
+  //     res.status(400);
+  //     res.send(err);
+  //     console.timeEnd('getMenuTimeLength');
+  //   });
+  console.time('getMenuTimeLengthCass');
+  const idInteger = parseInt(req.params.id, 10);
+  cassandra.instance.menu.findOne({ id: idInteger }, (err, result) => {
+    if (err) {
       res.status(400);
       res.send(err);
-      console.timeEnd('getMenuTimeLength');
-    });
+      console.timeEnd('getMenuTimeLengthCass');
+    }
+    result.dishes = JSON.parse(result.dishes);
+    res.status(200);
+    res.send(result);
+    console.timeEnd('getMenuTimeLengthCass');
+  });
 };
 
 exports.createMenu = (req, res) => {
