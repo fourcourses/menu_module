@@ -10,7 +10,7 @@ const models = ExpressCassandra.createClient({
   ormOptions: {
     defaultReplicationStrategy: {
       class: 'SimpleStrategy',
-      replication_factor: 1,
+      replication_factor: 3,
     },
     migration: 'safe',
   },
