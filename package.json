@@ -10,8 +10,9 @@
   "scripts": {
     "build": "webpack -w",
     "start": "nodemon server/index.js",
-    "db:seed": "psql postgres < database/db.sql && node database/Menu.js && node database/seed.js",
-    "db:gen": "node database/datageneration.js",
+    "db:seedpg": "psql postgres < database/db.sql && node database/Menu.js && node database/seed.js",
+    "db:seedcass": "cqlsh < cassandradb/db.cql && node cassandradb/init.js && cqlsh < cassandradb/seed.cql",
+    "db:gen": "node database/datageneration.js | gzip -c > data.gz",
     "test": "jest"
   },
   "dependencies": {
@@ -19,6 +20,7 @@
     "@babel/preset-env": "^7.4.3",
     "babel-jest": "^24.7.1",
     "body-parser": "^1.18.3",
+    "cassandra-driver": "^4.0.0",
     "cors": "^2.8.5",
     "csv-write-stream": "^2.0.0",
     "express": "^4.16.4",
