@@ -1,9 +1,18 @@
+const cassandra = require('cassandra-driver');
 const menus = require('../database/Menu');
 const sequelize = require('../database/index');
-const cassandra = require('../cassandradb/index');
+// const cassandra = require('../cassandradb/index');
+
+const client = new cassandra.Client({ contactPoints: ['127.0.0.1'], localDataCenter: 'datacenter1', keyspace: 'restaurantmenu' });
 
 exports.getMenu = (req, res) => {
-  // console.time('getMenuTimeLength');
+  const idInteger = parseInt(req.params.id);
+  client.execute('SELECT * FROM menu where id = ?', [idInteger], { prepare: true }, (err, result) => {
+    const resultFormatted = result.first();
+    resultFormatted.dishes = JSON.parse(resultFormatted.dishes);
+    res.status(200);
+    res.send(resultFormatted);
+  });
   // const query = `SELECT * FROM menus WHERE id = ${req.params.id};`;
   // sequelize.query(query, { type: sequelize.QueryTypes.SELECT })
   //   .then(([menu, metadata]) => {
@@ -21,26 +30,21 @@ exports.getMenu = (req, res) => {
   //     menu.dishes = dishesObj;
   //     res.status(200);
   //     res.send(menu);
-  //     console.timeEnd('getMenuTimeLength');
   //   })
   //   .catch((err) => {
   //     res.status(400);
   //     res.send(err);
-  //     console.timeEnd('getMenuTimeLength');
   //   });
-  console.time('getMenuTimeLengthCass');
-  const idInteger = parseInt(req.params.id, 10);
-  cassandra.instance.menu.findOne({ id: idInteger }, (err, result) => {
-    if (err) {
-      res.status(400);
-      res.send(err);
-      console.timeEnd('getMenuTimeLengthCass');
-    }
-    result.dishes = JSON.parse(result.dishes);
-    res.status(200);
-    res.send(result);
-    console.timeEnd('getMenuTimeLengthCass');
-  });
+  
+  // cassandra.instance.menu.findOne({ id: idInteger }, (err, result) => {
+  //   if (err) {
+  //     res.status(400);
+  //     res.send(err);
+  //   }
+  //   result.dishes = JSON.parse(result.dishes);
+  //   res.status(200);
+  //   res.send(result);
+  // });
 };
 
 exports.createMenu = (req, res) => {
