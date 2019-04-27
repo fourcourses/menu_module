@@ -12,3 +12,6 @@ database/restaurant.txt
 database/restaurantShort.txt
 cassandradb/restaurant.txt
 cassandradb/restaurantShort.txt
+newrelic.js
+newrelic_agent.log
+script.js
