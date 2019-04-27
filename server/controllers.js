@@ -7,44 +7,12 @@ const client = new cassandra.Client({ contactPoints: ['127.0.0.1'], localDataCen
 
 exports.getMenu = (req, res) => {
   const idInteger = parseInt(req.params.id);
-  client.execute('SELECT * FROM menu where id = ?', [idInteger], { prepare: true }, (err, result) => {
+  client.execute('SELECT * FROM menu where id = ? limit 1', [idInteger], { prepare: true }, (err, result) => {
     const resultFormatted = result.first();
     resultFormatted.dishes = JSON.parse(resultFormatted.dishes);
     res.status(200);
     res.send(resultFormatted);
   });
-  // const query = `SELECT * FROM menus WHERE id = ${req.params.id};`;
-  // sequelize.query(query, { type: sequelize.QueryTypes.SELECT })
-  //   .then(([menu, metadata]) => {
-  //     const dishesObj = [];
-  //     menu.dishes.forEach((dish) => {
-  //       const dishObj = {
-  //         dishType: dish[0].split(':')[1],
-  //         subType: dish[1].split(':')[1],
-  //         dish: dish[2].split(':')[1],
-  //         price: parseInt(dish[3].split(':')[1], 10),
-  //         ingredients: dish[4].split(':')[1],
-  //       };
-  //       dishesObj.push(dishObj);
-  //     });
-  //     menu.dishes = dishesObj;
-  //     res.status(200);
-  //     res.send(menu);
-  //   })
-  //   .catch((err) => {
-  //     res.status(400);
-  //     res.send(err);
-  //   });
-  
-  // cassandra.instance.menu.findOne({ id: idInteger }, (err, result) => {
-  //   if (err) {
-  //     res.status(400);
-  //     res.send(err);
-  //   }
-  //   result.dishes = JSON.parse(result.dishes);
-  //   res.status(200);
-  //   res.send(result);
-  // });
 };
 
 exports.createMenu = (req, res) => {
