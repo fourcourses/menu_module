@@ -1,7 +1,7 @@
-const newRelic = require('newrelic');
+// const nr = require('newrelic');
 const express = require('express');
 const path = require('path');
-const spdy = require('spdy');
+// const spdy = require('spdy');
 const fs = require('fs');
 const redis = require('redis');
 const redisClient = redis.createClient();
@@ -15,19 +15,19 @@ const client = new cassandra.Client({ contactPoints: ['127.0.0.1'], localDataCen
 // } = require('./controllers');
 
 const app = express();
-const options = {
-  key: fs.readFileSync(__dirname + '/server.key'),
-  cert: fs.readFileSync(__dirname + '/server.crt'),
-  requestCert: false,
-  rejectUnauthorized: false,
-};
+// const options = {
+//   key: fs.readFileSync(__dirname + '/server.key'),
+//   cert: fs.readFileSync(__dirname + '/server.crt'),
+//   requestCert: false,
+//   rejectUnauthorized: false,
+// };
 const port = 3003;
 
-spdy
-  .createServer(options, app)
-  .listen(port, () => {
-    console.log('Listening on port: ' + port + '.');
-  });
+// spdy
+//   .createServer(options, app)
+//   .listen(port, () => {
+//     console.log('Listening on port: ' + port + '.');
+//   });
 
 app.use(express.static(path.join(__dirname, '../public')));
 app.use('/restaurants/:id', express.static(path.join(__dirname, '../public')));
@@ -49,9 +49,9 @@ const getMenu = (req, res) => {
 
 const getCache = (req, res) => {
   let id = req.params.id;
-  redisClient.get(id, (err, result) => {
-    if (result) {
-      res.send(result);
+  redisClient.mget(id, (err, result) => {
+    if (result[0] !== null) {
+      res.send(JSON.parse(result[0]));
     } else {
       getMenu(req, res);
     }
@@ -59,6 +59,7 @@ const getCache = (req, res) => {
 };
 
 app.get('/menu/:id', getCache);
+// app.get('/menu/:id', getMenu);
 
 // app.post('/menu', createMenu);
 
@@ -66,5 +67,5 @@ app.get('/menu/:id', getCache);
 
 // app.delete('/menu/:id', deleteMenu);
 
-// app.listen(3003, () => console.log('listening on port 3003'));
+app.listen(port, () => console.log(`listening on port ${port}`));
 
