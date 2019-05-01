@@ -10,3 +10,11 @@ database/config.js
 database/menu.csv
 database/restaurant.txt
 database/restaurantShort.txt
+cassandradb/restaurant.txt
+cassandradb/restaurantShort.txt
+newrelic.js
+newrelic_agent.log
+script.js
+server/server.crt
+server/server.csr
+server/server.key

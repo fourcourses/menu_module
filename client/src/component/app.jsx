@@ -36,9 +36,13 @@ class App extends React.Component {
           type: reqData,
           exp: 'expand'
         })
-        this.colFunc()
-        this.lunchFunc()
+        // this.colFunc()
+        // this.lunchFunc()
       }
+    })
+    .done(function() {
+      this.colFunc();
+      this.lunchFunc();
     })
   }
   
