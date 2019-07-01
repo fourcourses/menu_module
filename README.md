@@ -10,7 +10,7 @@ For the menu component, high read speeds and reliability is paramount because th
 
 PostgreSQL was chosen as the RDBMS candidate due to its low read latencies and efficient [multi-version concurrency control (MVCC)](https://en.wikipedia.org/wiki/Multiversion_concurrency_control) implementation for better throughput. Cassandra was chosen as the NoSQL DBMS candidate due to its high availability and near linear scalability.
 
-Postgres and Cassandra queries were executed as prepared statements. Cassandra had Row Cache enabled with Replication Factor set to 3. Below shows the querying times within both database instances to quickly compare performance for a simple SELECT (read) query.
+Postgres and Cassandra queries were executed as prepared statements. Cassandra had Row Cache enabled with Replication Factor set to 3. Both databases were seeded with 10 million restaurant menus to replicate production usage. Below shows the querying times within both database instances to quickly compare performance for a simple SELECT (read) query.
 
 #### PostgreSQL:
 ![Image%202019-04-23%20at%208.39.15%20PM.png](https://cl.ly/e74ec0f4d53e/Image%202019-04-23%20at%208.39.15%20PM.png)
