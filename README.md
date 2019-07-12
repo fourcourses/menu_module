@@ -81,7 +81,7 @@ At this point, two loader.io accounts were used to further continue stress testi
 #### Final results
 The setup ultimately managed **19.5K RPS with 0% error rate and average latency of 65ms**. Both loader.io accounts ran simultaneously with similar results as screenshotted for one of the accounts below.
 
-![Image%202019-05-03%20at%205.09.07%20PM.png](https://cl.ly/dd17958a27e3/Image%202019-05-03%20at%205.09.07%20PM.png)
+![Image%202019-05-03%20at%205.09.07%20PM.png](https://cl.ly/dd17958a27e3/[10824542672f7e82374471f53e59ffad]_Image%25202019-05-03%2520at%25205.09.07%2520PM.png)
 
 Further steps with more budget/time could involve: 
 1. Using a paid loader.io account which grants 50k client request per minute to further stress the final setup and see where new bottlenecks arise.
