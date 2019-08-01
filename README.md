@@ -89,8 +89,10 @@ Further steps with more budget/time could involve:
 3. Migrate [servers](https://medium.com/the-node-js-collection/node-js-can-http-2-push-b491894e1bb1) and [Nginx](https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-with-http-2-support-on-ubuntu-18-04) to [HTTP2](https://developers.google.com/web/fundamentals/performance/http2/) to take advantage of its protocol advantages like [auto-push](https://www.npmjs.com/package/h2-auto-push).
 4. Explore utilizing a CDN (like AWS CloudFront) to reduce workload spent on static content.
 5. Providing higher availability by eliminating single point of failure (i.e. horizontally scaling Redis and Cassandra for performance and redundancy).
+6. Compress the data payload via gzip/brotli.
 
-This was a fun project to work on. I hope I can work on something similar in the future!
+Credits to Harjab Bal for building the front-end of this component. This was a fun project to work on. I hope I can work on something similar in the future!
+
 
 ## Related Microservices
 
